@@ -3,24 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Викторина</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"> 
+    <script src="https://kit.fontawesome.com/dea14de29d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
   {% if question %}
-    <h1>{{question}}</h1>
+    <h1><i class="fa-solid fa-angle-left"></i> {{question}} <i class="fa-solid fa-angle-right"></i></h1>
   {% endif %}
   <form method="post" action="test">
     <input type="hidden" name="q_id" value="{{quest_id}}">
     <div class="outer-div">
       {% for answer in answers_list %}
+        <div class="card">
         <div class="form_radio_btn">
-            <input type="radio" name="ans_text" value="{{ answer }}">{{ answer }}
+            <input type="radio" class="form-check-input" name="ans_text" value="{{ answer }}"> {{ answer }}
+        </div>
         </div>
       {% endfor %}
       <div class="inner-div">
+        <div class="header">
         <p>
-          <input class="btn" type="submit" value="Ответить">
+          <input class="btn btn-primary" type="submit" value="Ответить">
         </p>
+        </div>
       </div>
     </div>
   </form>
