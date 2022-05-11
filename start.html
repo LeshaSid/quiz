@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"> 
+    <script src="https://kit.fontawesome.com/dea14de29d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Викторина</title>
+</head>
+<body>
+<div class="header"><h2><i class="fa-solid fa-angle-left"></i> Выберите викторину: <i class="fa-solid fa-angle-right"></i></h2></div>
+<div class="header">
+    
+    <form method="post" action="/">
+        <select name="quiz" class="form-select" aria-label="Default select example" >
+            {% for id, name in q_list %}
+                <option value="{{id}}">{{name}}</option>
+            {% endfor %}    
+        </select>
+        <br>
+        <p><input type="submit" class="btn btn-warning" value="Выбрать"> </p>
+    </form>
+</div>
+</body>
+</html>
